@@ -11,12 +11,12 @@ import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
-import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import Modal from '@mui/material/Modal';
 
 import CriarTarefa from './CriarTarefa';
 import EditarTarefa from './EditarTarefa';
+import AlertDialog from '../../components/AlertDialog';
 
 //A função abaixo é usada para criar o array contendo os dados iniciais da listagem de tarefas.
 function createData(
@@ -125,7 +125,7 @@ const ListarTarefa = () => {
                         <Button variant="contained" color="success" onClick={() => handleEditar(row.idTarefa)}><EditIcon fontSize="small" /></Button>            
                       </TableCell>
                       <TableCell align="center">
-                        <Button variant="contained" color="error" onClick={() => handleDeletar(row.idTarefa)}><DeleteIcon fontSize="small" /></Button>            
+                        <AlertDialog onDeleteClick={() => handleDeletar(row.idTarefa)}/>
                       </TableCell>
                     </TableRow>
                 ))}
